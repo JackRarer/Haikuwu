@@ -15,11 +15,21 @@ function uwuPost() {
 	  // If our search request to the server had no errors...
 	  if (!error) {
 	  	// ...then we grab the ID of the tweet we want to retweet...
-		var haikuOrig = data.statuses[0].text;
-		var textTest = haikuOrig + 'TestingTesting'
+		  var haikuOrig = data.statuses[0].text;
+		  var haikUWU = ""
+		  for (let i in haikuOrig) {
+			  var temp = haikuOrig[i]
+			  if (temp !== 'l' && temp !== 'L' & temp !== 'r' && temp !== 'R' && temp !=='@') {
+				  haikUWU += haikuOrig[i]
+			  } else if (temp === '@') {
+				  haikUWU += 'from '
+			  } else {
+				  haikUWU += 'w'
+			  }
+		  }
 
 		// ...and then we tell Twitter we want to retweet it!
-		T.post('statuses/update', {status: textTest}, function (error, response) {
+		T.post('statuses/update', {status: haikUWU}, function (error, response) {
 			if (response) {
 				console.log('Success! Check your bot, it should have retweeted something.')
 			}
