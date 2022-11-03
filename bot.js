@@ -4,8 +4,8 @@ var Twit = require('twit');
 // We need to include our configuration file
 var T = new Twit(require('./config.js'));
 
-// This is the URL of a search for the latest tweets on the '#haikuchallenge' hashtag.
-var haikuGrab = {q: "#haikuchallenge", count: 10, result_type: "recent"}; 
+// This is the URL of a search for the latest tweets on the '#haikuchallenge' hashtag, ignoring retweets and replys.
+var haikuGrab = {q: "#haikuchallenge -filter:retweet AND -filter:reply", count: 10, result_type: "recent"}; 
 
 // This function finds the latest tweet with the #haikuchallenge hashtag, 'uwuifies' the text, and posts the new tweet.
 function uwuPost() {
@@ -15,13 +15,16 @@ function uwuPost() {
 	  // If our search request to the server had no errors...
 	  if (!error) {
 	  	// ...then we grab the text of the original tweet
-		  var haikuOrig = data.statuses[0].text;
+		  var haikuOrig = data.statuses[0]
+
+		  var haikuOrigText=haikuOrig.text;
+
 		  var haikUWU = ""
 		  //...then we change all L's and R's into w's to properly 'uwuify' our text. @'s are also changed to avoid errors in linking to accounts.
-		  for (let i in haikuOrig) {
-			  var temp = haikuOrig[i]
+		  for (let i in haikuOrigText) {
+			  var temp = haikuOrigText[i]
 			  if (temp !== 'l' && temp !== 'L' & temp !== 'r' && temp !== 'R' && temp !=='@') {
-				  haikUWU += haikuOrig[i]
+				  haikUWU += haikuOrigText[i]
 			  } else if (temp === '@') {
 				  haikUWU += 'from '
 			  } else {
