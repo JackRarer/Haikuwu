@@ -4,8 +4,8 @@ var Twit = require('twit');
 // We need to include our configuration file
 var T = new Twit(require('./config.js'));
 
-// This is the URL of a search for the latest tweets on the '#haikuchallenge' hashtag, ignoring retweets and replys.
-var haikuGrab = {q: "#haikuchallenge -filter:retweet AND -filter:reply", count: 10, result_type: "recent"}; 
+// This is the URL of a search for the latest tweets on the '#haikuchallenge' hashtag, ignoring retweets.
+var haikuGrab = {q: "#haikuchallenge -is:retweet", count: 10, result_type: "recent"}; 
 
 // This function finds the latest tweet with the #haikuchallenge hashtag, 'uwuifies' the text, and posts the new tweet.
 function uwuPost() {
