@@ -50,4 +50,4 @@ function uwuPost() {
 // Try to uwuify something as soon as we run the program...
 uwuPost();
 //Interval for posting, in milliseconds
-setInterval(uwuPost, 1000 * 60);
+setInterval(uwuPost, 1000 * 60 * 60);
