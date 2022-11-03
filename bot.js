@@ -49,6 +49,5 @@ function uwuPost() {
 
 // Try to uwuify something as soon as we run the program...
 uwuPost();
-// ...and then every hour after that. Time here is in milliseconds, so
-// 1000 ms = 1 second, 1 sec * 60 = 1 min, 1 min * 60 = 1 hour --> 1000 * 60 * 60
-setInterval(uwuPost, 1000 * 60 * 60);
+//Interval for posting, in milliseconds
+setInterval(uwuPost, 1000 * 60);
