@@ -33,9 +33,9 @@ function uwuPost() {
 		  }
 
 		// ...and then we tell Twitter we want to post it!
-		T.post('statuses/update', {status: haikUWU, attachment_url:`https://twitter.com/${data.screen_name[0]}/status/${haikuOrig}`}, function (error, response) {
+		T.post('statuses/update', {status: haikUWU}, function (error, response) {
 			if (response) {
-				console.log('Success! Check your bot, it should have retweeted something.')
+				console.log('Success! Check your bot, it should have tweeted something.')
 			}
 			// If there was an error with our Twitter call, we print it out here.
 			if (error) {
